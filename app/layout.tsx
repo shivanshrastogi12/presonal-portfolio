@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   description: SEO.description,
   keywords: SEO.keywords,
-  authors: [{ name: "Alex Rivera" }],
-  creator: "Alex Rivera",
+  authors: [{ name: "Shivansh Rastogi" }],
+  creator: "Shivansh Rastogi",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -50,18 +50,6 @@ export const metadata: Metadata = {
     description: SEO.description,
     images: [SEO.image],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-    generator: 'v0.app'
 }
 
 export default function RootLayout({
