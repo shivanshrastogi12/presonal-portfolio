@@ -40,7 +40,7 @@ export default function Navbar() {
   const handleDownload = () => {
     const link = document.createElement("a")
     link.href = PERSONAL.downloadCTA.file
-    link.download = "resume.pdf"
+    link.download = "Shivansh-Rastogi-Resume.pdf"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
