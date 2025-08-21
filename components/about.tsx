@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import { MapPin, GraduationCap } from "lucide-react"
 import { PERSONAL } from "@/src/constants/personal"
+import Image from "next/image"
 
 export default function About() {
   return (
@@ -31,7 +32,9 @@ export default function About() {
           >
             <motion.div className="relative" whileHover={{ rotate: 2, scale: 1.05 }} transition={{ duration: 0.3 }}>
               <div className="w-80 h-96 rounded-2xl overflow-hidden glass-card glow-ring">
-                <img src="/Personal_Photo.jpeg" alt="Profile" className="w-full h-full object-cover" />
+                <Image src="/Personal_Photo.jpeg" loading="lazy" alt="Profile"
+                  width={320} height={384}
+                  className="w-full h-full object-cover" />
               </div>
             </motion.div>
           </motion.div>

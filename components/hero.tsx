@@ -14,7 +14,7 @@ const iconMap = {
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Enhanced background particles */}
       {PERSONAL.hero.showParticles && (
         <div className="absolute inset-0">

@@ -45,7 +45,7 @@ export default function Certifications() {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <Badge className="absolute top-3 right-3 bg-purple-500/20 text-purple-300 border-purple-400/30">
+                  <Badge className="absolute top-3 right-3 bg-purple-500/80 text-slate-100 border-purple-700">
                     {cert.issueDate}
                   </Badge>
                 </div>
