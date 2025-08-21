@@ -20,6 +20,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SEO.url),
   title: {
     default: SEO.title,
     template: `%s — ${SEO.title}`,

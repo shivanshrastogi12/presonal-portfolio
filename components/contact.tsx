@@ -29,16 +29,54 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
+    // Show processing toast
     toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
+      title: "Sending message...",
+      description: "Please wait while we process your request.",
     })
 
-    setIsSubmitting(false)
-    ;(e.target as HTMLFormElement).reset()
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      senderName: formData.get("name") as string,
+      senderEmail: formData.get("email") as string,
+      reasonToContact: formData.get("subject") as string,
+      senderMsg: formData.get("message") as string,
+    }
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        })
+          ; (e.target as HTMLFormElement).reset()
+      } else {
+        toast({
+          title: "Failed to send message",
+          description: result.error || "Something went wrong. Please try again.",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      console.error("Error sending message:", error)
+      toast({
+        title: "Failed to send message",
+        description: "Network error. Please check your connection and try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -133,6 +171,7 @@ export default function Contact() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <Input
+                      name="name"
                       placeholder="Your Name"
                       required
                       className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400"
@@ -140,6 +179,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <Input
+                      name="email"
                       type="email"
                       placeholder="Your Email"
                       required
@@ -149,6 +189,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <Input
+                    name="subject"
                     placeholder="Subject"
                     required
                     className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400"
@@ -156,6 +197,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <Textarea
+                    name="message"
                     placeholder="Your Message"
                     required
                     rows={6}
