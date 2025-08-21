@@ -48,7 +48,7 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.h1
-            className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 gradient-text"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 gradient-text"
             style={{
               textShadow: "0 0 60px rgba(139, 92, 246, 0.4), 0 0 120px rgba(6, 182, 212, 0.2)",
             }}

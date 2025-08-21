@@ -26,7 +26,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           {letters.map((letter, index) => (
             <motion.span
               key={index}
-              className="text-6xl md:text-8xl lg:text-9xl font-bold gradient-text relative"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold gradient-text relative"
               variants={{
                 hidden: {
                   opacity: 0,
