@@ -19,14 +19,14 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         scale: 1.1,
         filter: "blur(20px)",
       }}
-      transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div className="text-center relative z-10">
         <motion.div className="flex justify-center space-x-2" initial="hidden" animate="visible">
           {letters.map((letter, index) => (
             <motion.span
               key={index}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold gradient-text relative"
+              className="text-3xl md:text-6xl lg:text-7xl font-bold gradient-text relative"
               variants={{
                 hidden: {
                   opacity: 0,
@@ -74,7 +74,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               }}
               onAnimationComplete={() => {
                 if (index === letters.length - 1) {
-                  setTimeout(onComplete, 2000)
+                  setTimeout(onComplete, 1000)
                 }
               }}
             >

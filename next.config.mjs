@@ -15,6 +15,15 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
+  async redirects() {
+    return [
+      {
+        source: "/direct-resume",
+        destination: "/resume.pdf",
+        permanent: true
+      }
+    ]
+  },
   // Security headers
   async headers() {
     return [
